@@ -1,0 +1,125 @@
+:root {
+  /* Default: Premium Homey Wooden Studio (Warm Day Studio) */
+  --bg-primary: #F2E8D8;          /* Main background: warm linen/parchment */
+  --bg-secondary: #E8D8C3;        /* Secondary background: light oak wash */
+  --bg-card: #FFF7EB;             /* Warm cream paper card */
+  --bg-card-hover: #FDF1DD;       /* Warm cream hover */
+  --bg-card-glass: rgba(255, 247, 235, 0.88);
+  --bg-input: #FFF7EB;
+  --bg-code: #392719;             /* Deep roasted walnut terminal */
+
+  --bg-walnut: #573923;           /* Rich walnut surface */
+  --bg-deep-walnut: #392719;      /* Dark roast walnut */
+  --bg-oak: #B88752;              /* Natural golden oak */
+  --bg-cream: #FFF7EB;            /* Pure warm cream */
+
+  --text-primary: #30251D;        /* Deep espresso charcoal */
+  --text-secondary: #796653;      /* Warm weathered wood taupe */
+  --text-muted: #9C8875;          /* Muted warm wood tone */
+  --text-inverted: #FFF7EB;       /* Cream text for dark walnut surfaces */
+  --text-on-walnut: #FFF7EB;
+
+  /* Accents & Highlights */
+  --accent-primary: #573923;      /* Walnut */
+  --accent-primary-hover: #B88752;/* Transitions to natural oak on hover */
+  --accent-primary-rgb: 87, 57, 35;
+  
+  --accent-secondary: #B88752;    /* Natural oak */
+  --accent-secondary-hover: #C69B56; /* Brass */
+  --accent-secondary-rgb: 184, 135, 82;
+
+  --accent-brass: #C69B56;        /* Metallic brass highlight */
+  --accent-brass-rgb: 198, 155, 86;
+
+  --accent-emerald: #3A6945;      /* Forest sage */
+  --accent-amber: #B86E20;        /* Amber honeysuckle */
+  --accent-rose: #A43F33;         /* Terracotta brick */
+
+  --border-subtle: #D1B99A;       /* Wood joinery border */
+  --border-medium: #BF9F7A;       /* Deeper wood boundary */
+  --border-walnut: #573923;       /* Walnut border */
+  --border-brass: #C69B56;        /* Brass trim */
+  --border-highlight: rgba(184, 135, 82, 0.45);
+
+  --shadow-sm: 0 2px 8px rgba(57, 39, 25, 0.08);
+  --shadow-md: 0 8px 22px rgba(57, 39, 25, 0.12);
+  --shadow-lg: 0 16px 36px rgba(57, 39, 25, 0.16);
+  --shadow-wood: 0 8px 24px rgba(57, 39, 25, 0.22);
+  --shadow-glow: 0 0 35px rgba(198, 155, 86, 0.2);
+
+  --nav-bg: rgba(242, 232, 216, 0.92);
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, Cambria, 'Times New Roman', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', Menlo, Consolas, monospace;
+
+  /* Radii - Elegant handcrafted corners */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --radius-full: 9999px;
+
+  /* Layout */
+  --container-max: 1200px;
+  --container-wide: 1320px;
+  --header-height: 76px;
+
+  /* Transitions */
+  --transition-fast: 0.18s ease;
+  --transition-normal: 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Deep Walnut Night Studio (Dark Mode) */
+[data-theme="dark"], [data-theme="deep-walnut"] {
+  --bg-primary: #1C140E;          /* Deep nocturnal walnut */
+  --bg-secondary: #271C14;        /* Dark roasted walnut surface */
+  --bg-card: #2B1E15;             /* Hand-rubbed walnut card */
+  --bg-card-hover: #35251B;
+  --bg-card-glass: rgba(43, 30, 21, 0.88);
+  --bg-input: #231810;
+  --bg-code: #140E09;
+
+  --bg-walnut: #3D2B1F;
+  --bg-deep-walnut: #18100A;
+  --bg-oak: #C8945A;
+  --bg-cream: #F5E8D3;
+
+  --text-primary: #F5E8D3;        /* Warm cream ivory */
+  --text-secondary: #C4B099;      /* Warm aged parchment */
+  --text-muted: #8E7A68;
+  --text-inverted: #1C140E;
+  --text-on-walnut: #F5E8D3;
+
+  --accent-primary: #C8945A;      /* Glowing golden oak */
+  --accent-primary-hover: #E0B368;/* Luminous brass on hover */
+  --accent-primary-rgb: 200, 148, 90;
+
+  --accent-secondary: #E0B368;    /* Brass */
+  --accent-secondary-hover: #F0C988;
+  --accent-secondary-rgb: 224, 179, 104;
+
+  --accent-brass: #E0B368;
+  --accent-brass-rgb: 224, 179, 104;
+
+  --accent-emerald: #528E61;
+  --accent-amber: #E28E35;
+  --accent-rose: #C25648;
+
+  --border-subtle: #4A3525;       /* Muted dark joinery border */
+  --border-medium: #5E4330;
+  --border-walnut: #C8945A;
+  --border-brass: #E0B368;
+  --border-highlight: rgba(224, 179, 104, 0.35);
+
+  --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --shadow-lg: 0 16px 40px rgba(0, 0, 0, 0.55);
+  --shadow-wood: 0 8px 28px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 35px rgba(224, 179, 104, 0.15);
+
+  --nav-bg: rgba(28, 20, 14, 0.92);
+}

@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="100%" height="100%">
+  <defs>
+    <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5BA72"/>
+      <stop offset="50%" stop-color="#C69B56"/>
+      <stop offset="100%" stop-color="#9C7438"/>
+    </linearGradient>
+    <linearGradient id="woodGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2D1F16"/>
+      <stop offset="100%" stop-color="#1A120C"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="550" fill="url(#woodGrad)"/>
+  <rect x="25" y="25" width="750" height="500" rx="16" fill="none" stroke="url(#brassGrad)" stroke-width="2.5" stroke-dasharray="10 5"/>
+  <rect x="40" y="40" width="720" height="470" rx="12" fill="#241911" stroke="#4F3826" stroke-width="1.5"/>
+
+  <text x="400" y="105" font-family="'Playfair Display', serif" font-size="14" fill="#C69B56" letter-spacing="4" text-anchor="middle" font-weight="600">COLLEGIATE HACKATHON PARTICIPATION</text>
+  <text x="400" y="165" font-family="'Playfair Display', serif" font-size="32" fill="#FFF7EB" font-weight="700" text-anchor="middle">Project INAVIST — India Tourism Portal</text>
+  <text x="400" y="200" font-family="'Inter', sans-serif" font-size="15" fill="#D1B99A" text-anchor="middle">Presented to</text>
+  
+  <text x="400" y="260" font-family="'Playfair Display', serif" font-size="38" fill="#E5BA72" font-weight="700" text-anchor="middle">Vishwa</text>
+  <line x1="260" y1="275" x2="540" y2="275" stroke="#C69B56" stroke-width="2"/>
+
+  <text x="400" y="325" font-family="'Inter', sans-serif" font-size="16" fill="#FFF7EB" text-anchor="middle">For outstanding engineering &amp; live prototype demonstration</text>
+  <text x="400" y="355" font-family="'Inter', sans-serif" font-size="14" fill="#D1B99A" text-anchor="middle">College Innovation Cell • Smart Digital Solutions for Domestic Tourism</text>
+
+  <circle cx="400" cy="435" r="32" fill="#1C140E" stroke="url(#brassGrad)" stroke-width="2"/>
+  <text x="400" y="440" font-family="'JetBrains Mono', monospace" font-size="11" fill="#E5BA72" font-weight="700" text-anchor="middle">HACK</text>
+</svg>

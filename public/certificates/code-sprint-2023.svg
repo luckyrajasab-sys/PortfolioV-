@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="100%" height="100%">
+  <defs>
+    <linearGradient id="goldGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F59E0B"/>
+      <stop offset="100%" stop-color="#FBBF24"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="550" fill="#0D0F14"/>
+  <rect x="25" y="25" width="750" height="500" rx="16" fill="none" stroke="url(#goldGrad2)" stroke-width="2"/>
+  <rect x="40" y="40" width="720" height="470" rx="12" fill="#141824" stroke="#2D3748" stroke-width="1.5"/>
+
+  <text x="400" y="105" font-family="'Space Grotesk', sans-serif" font-size="14" fill="#FBBF24" letter-spacing="4" text-anchor="middle" font-weight="600">DEPARTMENT MERIT AWARD</text>
+  <text x="400" y="165" font-family="'Space Grotesk', sans-serif" font-size="30" fill="#EDEDF0" font-weight="700" text-anchor="middle">1st Place — Freshman C Coding Sprint</text>
+  <text x="400" y="200" font-family="'Inter', sans-serif" font-size="15" fill="#A0AEC0" text-anchor="middle">Conferred upon</text>
+  <text x="400" y="260" font-family="'Space Grotesk', sans-serif" font-size="36" fill="#F59E0B" font-weight="700" text-anchor="middle">Aarav Sharma</text>
+  <line x1="260" y1="275" x2="540" y2="275" stroke="#F59E0B" stroke-width="2"/>
+  <text x="400" y="325" font-family="'Inter', sans-serif" font-size="15" fill="#E2E8F0" text-anchor="middle">For outstanding algorithmic problem-solving and highest score among 120+ participants</text>
+  <text x="400" y="355" font-family="'Inter', sans-serif" font-size="14" fill="#718096" text-anchor="middle">Department of Computer Science &amp; Engineering | November 2023</text>
+
+  <circle cx="400" cy="435" r="32" fill="#1A202C" stroke="#F59E0B" stroke-width="2"/>
+  <text x="400" y="440" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#FBBF24" font-weight="700" text-anchor="middle">WINNER</text>
+</svg>
+

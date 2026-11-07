@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="100%" height="100%">
+  <defs>
+    <linearGradient id="anthropicGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="50%" stop-color="#CA8A04"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="550" fill="#0C0E14"/>
+  <rect x="25" y="25" width="750" height="500" rx="16" fill="none" stroke="url(#anthropicGrad)" stroke-width="2"/>
+  <rect x="40" y="40" width="720" height="470" rx="12" fill="#11141C" stroke="#1F2937" stroke-width="1.5"/>
+
+  <text x="400" y="105" font-family="'Space Grotesk', sans-serif" font-size="14" fill="#FBBF24" letter-spacing="4" text-anchor="middle" font-weight="600">ANTHROPIC CLAUDE AI CERTIFICATION SUITE</text>
+  <text x="400" y="165" font-family="'Space Grotesk', sans-serif" font-size="30" fill="#EDEDF0" font-weight="700" text-anchor="middle">Anthropic AI Interactive &amp; Developer Certifications</text>
+  <text x="400" y="200" font-family="'Inter', sans-serif" font-size="15" fill="#9CA3AF" text-anchor="middle">Presented to</text>
+  
+  <text x="400" y="260" font-family="'Space Grotesk', sans-serif" font-size="36" fill="#FBBF24" font-weight="700" text-anchor="middle">Vishwa</text>
+  <line x1="260" y1="275" x2="540" y2="275" stroke="#FBBF24" stroke-width="2"/>
+
+  <text x="400" y="325" font-family="'Inter', sans-serif" font-size="16" fill="#EDEDF0" text-anchor="middle">Comprehensive completion of ~15 Anthropic AI courses &amp; certificates</text>
+  <text x="400" y="355" font-family="'Inter', sans-serif" font-size="14" fill="#9CA3AF" text-anchor="middle">Prompt Engineering • Claude 3.5 Sonnet Integration • API Tool Use • Responsible AI Design</text>
+
+  <circle cx="400" cy="435" r="32" fill="#1C1F2E" stroke="url(#anthropicGrad)" stroke-width="2"/>
+  <text x="400" y="440" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#FBBF24" font-weight="700" text-anchor="middle">AI 15+</text>
+</svg>
+

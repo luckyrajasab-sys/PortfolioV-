@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="walnutGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#573923"/>
+      <stop offset="50%" stop-color="#462E1D"/>
+      <stop offset="100%" stop-color="#392719"/>
+    </linearGradient>
+    <linearGradient id="brassGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5BA72"/>
+      <stop offset="50%" stop-color="#C69B56"/>
+      <stop offset="100%" stop-color="#A77B3C"/>
+    </linearGradient>
+    <radialGradient id="warmMesh" cx="50%" cy="40%" r="60%">
+      <stop offset="0%" stop-color="#FFF7EB"/>
+      <stop offset="100%" stop-color="#E8D8C3"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Parchment & Wood Background container -->
+  <rect width="400" height="400" rx="36" fill="url(#warmMesh)"/>
+  <rect x="6" y="6" width="388" height="388" rx="30" fill="none" stroke="url(#brassGrad)" stroke-width="3" stroke-opacity="0.85"/>
+  <rect x="14" y="14" width="372" height="372" rx="24" fill="none" stroke="#D1B99A" stroke-width="1.5" stroke-dasharray="6 4"/>
+
+  <!-- Subtle crafted wood-grain backdrop circles -->
+  <circle cx="200" cy="180" r="110" fill="none" stroke="#D1B99A" stroke-width="1.5"/>
+  <circle cx="200" cy="180" r="135" fill="none" stroke="rgba(198,155,86,0.3)" stroke-width="1"/>
+  
+  <!-- Silhouette in Warm Walnut -->
+  <path d="M110 330 C110 270, 150 250, 200 250 C250 250, 290 270, 290 330" fill="url(#walnutGrad)" stroke="url(#brassGrad)" stroke-width="2"/>
+  
+  <path d="M155 170 C155 125, 175 105, 200 105 C225 105, 245 125, 245 170 C245 205, 225 225, 200 225 C175 225, 155 205, 155 170 Z" fill="#462E1D" stroke="#573923" stroke-width="2"/>
+  
+  <!-- Modern Glasses in Polished Brass -->
+  <rect x="165" y="155" width="28" height="18" rx="4" fill="none" stroke="url(#brassGrad)" stroke-width="2.5"/>
+  <rect x="207" y="155" width="28" height="18" rx="4" fill="none" stroke="url(#brassGrad)" stroke-width="2.5"/>
+  <line x1="193" y1="164" x2="207" y2="164" stroke="url(#brassGrad)" stroke-width="2.5"/>
+
+  <!-- Craftsman Badge -->
+  <g transform="translate(135, 300)">
+    <rect width="130" height="32" rx="16" fill="#392719" stroke="url(#brassGrad)" stroke-width="1.5"/>
+    <text x="65" y="21" font-family="'JetBrains Mono', monospace" font-size="12" fill="#E5BA72" font-weight="600" text-anchor="middle">&lt;vishwa /&gt;</text>
+  </g>
+  
+  <!-- Decorative Brass Rivets -->
+  <circle cx="30" cy="30" r="4" fill="url(#brassGrad)"/>
+  <circle cx="370" cy="30" r="4" fill="url(#brassGrad)"/>
+  <circle cx="30" cy="370" r="4" fill="url(#brassGrad)"/>
+  <circle cx="370" cy="370" r="4" fill="url(#brassGrad)"/>
+</svg>

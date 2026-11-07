@@ -1,0 +1,181 @@
+/* Comprehensive Responsive Rules */
+
+@media (max-width: 1024px) {
+  .section-wrapper {
+    padding: 5rem 0;
+  }
+
+  .hero-visual-grid {
+    grid-template-columns: 280px 1fr;
+    gap: 1.25rem;
+  }
+
+  .about-bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .semesters-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top-row {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 960px) {
+  .desktop-nav {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex;
+  }
+
+  .skills-categories-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .reflection-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-layout-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-visual-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-dual-cols {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-stack-details-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-wrapper {
+    padding: 4rem 0;
+  }
+
+  .hero-section {
+    padding: 3rem 0 4rem;
+  }
+
+  .hero-heading {
+    font-size: 2.35rem;
+  }
+
+  .hero-subheading {
+    font-size: 1rem;
+  }
+
+  .hero-stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .projects-bento-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .achievements-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .github-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .form-row-dual {
+    grid-template-columns: 1fr;
+  }
+
+  .academic-honors-row {
+    grid-template-columns: 1fr;
+  }
+
+  .footer-top-row {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .about-core-pillars {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-actions-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .resume-action-buttons {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .resume-sheet {
+    padding: 1.25rem;
+  }
+
+  .sheet-row {
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .project-pagination-row {
+    grid-template-columns: 1fr;
+  }
+
+  .project-card-actions {
+    flex-direction: column;
+  }
+
+  .project-action-btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-heading {
+    font-size: 2rem;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+  }
+
+  .tech-card {
+    padding: 1.25rem;
+  }
+
+  .filter-pill-btn {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.85rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+  }
+
+  .resume-nav-btn span {
+    display: none;
+  }
+
+  .brand-sub {
+    display: none;
+  }
+}

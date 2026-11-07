@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="100%" height="100%">
+  <defs>
+    <linearGradient id="oakPython" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C8945A"/>
+      <stop offset="100%" stop-color="#9E6E38"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="550" fill="#241911"/>
+  <rect x="25" y="25" width="750" height="500" rx="16" fill="none" stroke="url(#oakPython)" stroke-width="2.5"/>
+  <rect x="40" y="40" width="720" height="470" rx="12" fill="#1C130D" stroke="#483222" stroke-width="1.5"/>
+
+  <text x="400" y="105" font-family="'Playfair Display', serif" font-size="14" fill="#C8945A" letter-spacing="4" text-anchor="middle" font-weight="600">PROGRAMMING CERTIFICATION</text>
+  <text x="400" y="165" font-family="'Playfair Display', serif" font-size="32" fill="#FFF7EB" font-weight="700" text-anchor="middle">Python Fundamentals Certification</text>
+  <text x="400" y="200" font-family="'Inter', sans-serif" font-size="15" fill="#D1B99A" text-anchor="middle">Awarded to</text>
+  
+  <text x="400" y="260" font-family="'Playfair Display', serif" font-size="38" fill="#C8945A" font-weight="700" text-anchor="middle">Vishwa</text>
+  <line x1="260" y1="275" x2="540" y2="275" stroke="#C8945A" stroke-width="2"/>
+
+  <text x="400" y="325" font-family="'Inter', sans-serif" font-size="16" fill="#FFF7EB" text-anchor="middle">Certified fluency in Python Syntax, Data Structures, Modular Code, and Script Automation</text>
+  <text x="400" y="355" font-family="'Inter', sans-serif" font-size="14" fill="#D1B99A" text-anchor="middle">Validated Technical Credential • 2023 – 2024</text>
+
+  <circle cx="400" cy="435" r="32" fill="#2E1E14" stroke="url(#oakPython)" stroke-width="2"/>
+  <text x="400" y="440" font-family="'JetBrains Mono', monospace" font-size="11" fill="#C8945A" font-weight="700" text-anchor="middle">PYTHON</text>
+</svg>

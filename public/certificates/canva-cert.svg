@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="100%" height="100%">
+  <defs>
+    <linearGradient id="brassCanva" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E5BA72"/>
+      <stop offset="100%" stop-color="#A77B3C"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="550" fill="#201610"/>
+  <rect x="25" y="25" width="750" height="500" rx="16" fill="none" stroke="url(#brassCanva)" stroke-width="2.5"/>
+  <rect x="40" y="40" width="720" height="470" rx="12" fill="#18110B" stroke="#483222" stroke-width="1.5"/>
+
+  <text x="400" y="105" font-family="'Playfair Display', serif" font-size="14" fill="#C69B56" letter-spacing="4" text-anchor="middle" font-weight="600">DESIGN &amp; DIGITAL MEDIA CERTIFICATION</text>
+  <text x="400" y="165" font-family="'Playfair Display', serif" font-size="32" fill="#FFF7EB" font-weight="700" text-anchor="middle">Canva UI/UX Design Certification</text>
+  <text x="400" y="200" font-family="'Inter', sans-serif" font-size="15" fill="#D1B99A" text-anchor="middle">Presented to</text>
+  
+  <text x="400" y="260" font-family="'Playfair Display', serif" font-size="38" fill="#E5BA72" font-weight="700" text-anchor="middle">Vishwa</text>
+  <line x1="260" y1="275" x2="540" y2="275" stroke="#C69B56" stroke-width="2"/>
+
+  <text x="400" y="325" font-family="'Inter', sans-serif" font-size="16" fill="#FFF7EB" text-anchor="middle">Demonstrated mastery in visual wireframing, component hierarchy, design systems, and asset creation</text>
+  <text x="400" y="355" font-family="'Inter', sans-serif" font-size="14" fill="#D1B99A" text-anchor="middle">Canva Design Academy • 2024</text>
+
+  <circle cx="400" cy="435" r="32" fill="#2D1F16" stroke="url(#brassCanva)" stroke-width="2"/>
+  <text x="400" y="440" font-family="'JetBrains Mono', monospace" font-size="11" fill="#E5BA72" font-weight="700" text-anchor="middle">CANVA</text>
+</svg>

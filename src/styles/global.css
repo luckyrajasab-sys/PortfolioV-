@@ -1,0 +1,2886 @@
+@import './variables.css';
+@import "tailwindcss";
+
+/* Modern CSS Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-family: var(--font-body);
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.68;
+  font-size: 1rem;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  overflow-x: hidden;
+  position: relative;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Warm Studio Ambient Background */
+.ambient-mesh {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.ambient-mesh::before {
+  content: '';
+  position: absolute;
+  top: -140px;
+  right: 10%;
+  width: 620px;
+  height: 620px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(198, 155, 86, 0.16) 0%, rgba(232, 216, 195, 0.08) 50%, transparent 70%);
+  filter: blur(80px);
+}
+
+.ambient-mesh::after {
+  content: '';
+  position: absolute;
+  top: 45%;
+  left: -140px;
+  width: 640px;
+  height: 640px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(184, 135, 82, 0.14) 0%, rgba(87, 57, 35, 0.06) 55%, transparent 70%);
+  filter: blur(90px);
+}
+
+/* Subtle Wooden Grain & Studio Linen Grid Texture */
+.ambient-grid {
+  position: fixed;
+  inset: 0;
+  background-size: 44px 44px;
+  background-image: 
+    linear-gradient(to right, rgba(87, 57, 35, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(87, 57, 35, 0.04) 1px, transparent 1px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+[data-theme="dark"] .ambient-grid {
+  background-image: 
+    linear-gradient(to right, rgba(200, 148, 90, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(200, 148, 90, 0.045) 1px, transparent 1px);
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  top: -44px;
+  left: 16px;
+  background: var(--bg-walnut);
+  color: var(--text-inverted);
+  padding: 8px 18px;
+  border-radius: var(--radius-sm);
+  z-index: 1000;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border: 1px solid var(--border-brass);
+  transition: top var(--transition-fast);
+  text-decoration: none;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+/* Container Constraints */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+.container-wide {
+  width: 100%;
+  max-width: var(--container-wide);
+  margin: 0 auto;
+  padding: 0 1.75rem;
+}
+
+/* Typography Base - Refined Editorial Serif & Warm Sans */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  color: var(--text-primary);
+  line-height: 1.25;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+p {
+  color: var(--text-secondary);
+  font-size: 1.02rem;
+  line-height: 1.7;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+code, kbd, samp, pre, .font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+/* Section Wrappers */
+.section-wrapper {
+  padding: 6.5rem 0;
+  position: relative;
+}
+
+.section-header {
+  margin-bottom: 3.5rem;
+}
+
+.section-header.text-center {
+  text-align: center;
+  max-width: 740px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Wood-Crafted Kicker Pill */
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--bg-walnut);
+  background: rgba(184, 135, 82, 0.14);
+  padding: 0.38rem 0.95rem;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-medium);
+  box-shadow: 0 1px 3px rgba(87, 57, 35, 0.05);
+  margin-bottom: 1.15rem;
+}
+
+[data-theme="dark"] .section-kicker {
+  color: var(--accent-brass);
+  background: rgba(200, 148, 90, 0.14);
+  border-color: var(--border-subtle);
+}
+
+.section-kicker.cyan,
+.section-kicker.brass {
+  color: var(--accent-brass);
+  background: rgba(198, 155, 86, 0.14);
+  border-color: var(--border-brass);
+}
+
+.section-kicker.oak {
+  color: var(--accent-secondary);
+  background: rgba(184, 135, 82, 0.14);
+  border-color: var(--border-medium);
+}
+
+.section-title {
+  font-size: clamp(2.2rem, 4vw, 3.1rem);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.section-description {
+  font-size: 1.08rem;
+  color: var(--text-secondary);
+  max-width: 680px;
+  line-height: 1.75;
+}
+
+.section-header.text-center .section-description {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================================================
+   COMPLETE BUTTON TRANSFORMATION (HOMEY WOODEN DESIGN)
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.65rem;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 0.8rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  text-decoration: none;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--accent-brass);
+  outline-offset: 3px;
+}
+
+/* Primary Button: Dark Walnut with Cream Text and Brass Inlay */
+.btn-primary {
+  background: linear-gradient(180deg, #5C3D26 0%, #442B1A 100%);
+  color: var(--text-inverted);
+  border: 1px solid #754F30;
+  box-shadow: 0 4px 14px rgba(57, 39, 25, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(180deg, #C29058 0%, #A6753E 100%);
+  color: var(--bg-deep-walnut);
+  border-color: #D1B99A;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(184, 135, 82, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+.btn-primary:active {
+  background: #2E1E13;
+  color: var(--text-inverted);
+  transform: translateY(1px);
+  box-shadow: 0 2px 6px rgba(57, 39, 25, 0.3);
+}
+
+[data-theme="dark"] .btn-primary {
+  background: linear-gradient(180deg, #C8945A 0%, #AA7740 100%);
+  color: #1C140E;
+  border-color: #E0B368;
+}
+
+[data-theme="dark"] .btn-primary:hover {
+  background: linear-gradient(180deg, #E0B368 0%, #C8945A 100%);
+  color: #1C140E;
+}
+
+/* Secondary Button: Cream with Walnut Border & Text */
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-medium);
+  box-shadow: 0 2px 6px rgba(57, 39, 25, 0.05);
+}
+
+.btn-secondary:hover {
+  background: var(--bg-secondary);
+  border-color: var(--accent-primary);
+  color: var(--text-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(57, 39, 25, 0.1);
+}
+
+.btn-secondary:active {
+  transform: translateY(1px);
+  background: var(--bg-secondary);
+}
+
+/* Outline Button: Transparent with Oak Trim */
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1.5px solid var(--border-medium);
+}
+
+.btn-outline:hover {
+  background: rgba(184, 135, 82, 0.12);
+  border-color: var(--accent-secondary);
+  color: var(--accent-primary);
+}
+
+.btn-sm {
+  padding: 0.52rem 0.95rem;
+  font-size: 0.85rem;
+  border-radius: var(--radius-sm);
+}
+
+.btn-icon {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn-icon:hover {
+  background: var(--bg-card-hover);
+  color: var(--accent-primary);
+  border-color: var(--accent-brass);
+  transform: translateY(-1px);
+}
+
+.btn-icon-sm {
+  width: 32px;
+  height: 32px;
+}
+
+.w-full {
+  width: 100%;
+}
+
+/* ==========================================================================
+   WOODEN CARDS & PAPER SURFACES
+   ========================================================================== */
+
+.tech-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 1.85rem;
+  transition: all var(--transition-normal);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.tech-card:hover {
+  border-color: var(--border-highlight);
+  box-shadow: var(--shadow-md), 0 0 24px rgba(184, 135, 82, 0.08);
+  transform: translateY(-3px);
+}
+
+/* Badges & Wooden Pills */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.28rem 0.72rem;
+  border-radius: var(--radius-full);
+  background: rgba(184, 135, 82, 0.12);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  font-weight: 500;
+}
+
+.badge-accent {
+  background: rgba(87, 57, 35, 0.1);
+  color: var(--bg-walnut);
+  border-color: rgba(87, 57, 35, 0.28);
+}
+
+[data-theme="dark"] .badge-accent {
+  background: rgba(200, 148, 90, 0.15);
+  color: var(--accent-brass);
+  border-color: rgba(200, 148, 90, 0.35);
+}
+
+.badge-cyan,
+.badge-brass {
+  background: rgba(198, 155, 86, 0.14);
+  color: #8C6524;
+  border-color: rgba(198, 155, 86, 0.35);
+}
+
+[data-theme="dark"] .badge-cyan,
+[data-theme="dark"] .badge-brass {
+  color: var(--accent-brass);
+}
+
+.badge-oak {
+  background: rgba(184, 135, 82, 0.14);
+  color: var(--accent-secondary);
+  border-color: rgba(184, 135, 82, 0.35);
+}
+
+[data-theme="dark"] .badge-oak {
+  color: var(--accent-primary);
+}
+
+.badge-emerald {
+  background: rgba(58, 105, 69, 0.12);
+  color: var(--accent-emerald);
+  border-color: rgba(58, 105, 69, 0.3);
+}
+
+.badge-amber {
+  background: rgba(184, 110, 32, 0.12);
+  color: var(--accent-amber);
+  border-color: rgba(184, 110, 32, 0.3);
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: 0.28rem 0.65rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  font-size: 0.76rem;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+}
+
+/* Scroll Progress Bar (Brass Inlay) */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3.5px;
+  background: linear-gradient(90deg, var(--bg-walnut), var(--accent-brass), var(--accent-secondary));
+  z-index: 10000;
+  transition: width 0.08s linear;
+}
+
+/* ==========================================================================
+   NAVIGATION BAR (WARM STUDIO AESTHETIC)
+   ========================================================================== */
+
+.navbar-header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  z-index: 900;
+  background: var(--nav-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: all var(--transition-normal);
+}
+
+.navbar-scrolled {
+  border-bottom-color: var(--border-medium);
+  box-shadow: 0 4px 20px rgba(57, 39, 25, 0.08);
+}
+
+.navbar-inner {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  text-decoration: none;
+}
+
+/* Monogram: Handcrafted Walnut & Brass Tile */
+.brand-monogram {
+  width: 40px;
+  height: 40px;
+  background: linear-gradient(135deg, #573923 0%, #392719 100%);
+  color: #FFF7EB;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--accent-brass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.15rem;
+  box-shadow: 0 3px 10px rgba(57, 39, 25, 0.25);
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-name {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: 1.12rem;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
+}
+
+.brand-sub {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 0.35rem;
+}
+
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: var(--radius-sm);
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.nav-link:hover {
+  color: var(--text-primary);
+  background: rgba(87, 57, 35, 0.06);
+}
+
+.nav-link.active {
+  color: var(--bg-walnut);
+  font-weight: 600;
+}
+
+[data-theme="dark"] .nav-link.active {
+  color: var(--accent-brass);
+}
+
+.active-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--accent-brass);
+  position: absolute;
+  bottom: 3px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.resume-nav-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.resume-arrow-icon {
+  opacity: 0.75;
+  transition: transform var(--transition-fast);
+}
+
+.resume-nav-btn:hover .resume-arrow-icon {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
+/* Theme Toggle Button */
+.theme-toggle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
+  color: var(--accent-brass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-sm);
+}
+
+.theme-toggle-btn:hover {
+  color: var(--bg-walnut);
+  border-color: var(--accent-brass);
+  background: var(--bg-secondary);
+  transform: translateY(-1px);
+}
+
+/* Mobile Hamburger Toggle */
+.mobile-menu-toggle {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 6px;
+}
+
+/* Mobile Drawer Overlay */
+.mobile-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 20, 14, 0.65);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mobile-drawer {
+  width: 82%;
+  max-width: 340px;
+  height: 100%;
+  background: var(--bg-primary);
+  border-left: 1.5px solid var(--border-medium);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  box-shadow: var(--shadow-wood);
+}
+
+.mobile-drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.mobile-nav-list {
+  list-style: none;
+  margin: 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-sm);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.mobile-nav-link:hover,
+.mobile-nav-link.active {
+  background: var(--bg-secondary);
+  color: var(--bg-walnut);
+  font-weight: 600;
+}
+
+.mobile-active-pill {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-walnut);
+  color: #fff;
+}
+
+.mobile-drawer-footer {
+  margin-top: auto;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ==========================================================================
+   HERO SECTION (EDITORIAL WOODEN STUDIO)
+   ========================================================================== */
+
+.hero-section {
+  padding: 5rem 0 6rem;
+  position: relative;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.hero-status-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  padding: 0.4rem 1.05rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.5rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.status-indicator-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  box-shadow: 0 0 10px rgba(58, 105, 69, 0.45);
+  animation: pulse-dot 2.2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.85); }
+}
+
+.status-text {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.hero-heading {
+  font-size: clamp(2.6rem, 5.8vw, 4.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  max-width: 960px;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.hero-subheading {
+  font-size: clamp(1.05rem, 1.8vw, 1.25rem);
+  color: var(--text-secondary);
+  max-width: 780px;
+  line-height: 1.75;
+  margin-bottom: 2.25rem;
+}
+
+.hero-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.15rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.85rem;
+}
+
+.hero-social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.35rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.5rem;
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+  color: var(--bg-walnut);
+}
+
+[data-theme="dark"] .social-link:hover {
+  color: var(--accent-brass);
+}
+
+.hero-visual-grid {
+  display: grid;
+  grid-template-columns: 340px 1fr;
+  gap: 1.75rem;
+  width: 100%;
+  max-width: 1000px;
+  margin-bottom: 3.5rem;
+  text-align: left;
+}
+
+/* Profile Card - Handcrafted Wooden Mount */
+.hero-profile-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 2.25rem 1.75rem;
+  background: var(--bg-card);
+  border: 1.5px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-wood);
+}
+
+.hero-avatar-wrapper {
+  position: relative;
+  width: 135px;
+  height: 135px;
+  margin-bottom: 1.35rem;
+}
+
+.hero-avatar-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--bg-walnut);
+  box-shadow: 0 4px 12px rgba(57, 39, 25, 0.2);
+}
+
+.hero-avatar-badge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 34px;
+  height: 34px;
+  background: var(--bg-card);
+  border: 1.5px solid var(--accent-brass);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--bg-walnut);
+  box-shadow: 0 2px 6px rgba(57, 39, 25, 0.2);
+}
+
+.hero-avatar-name {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.hero-avatar-role {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  margin-top: 0.3rem;
+}
+
+/* Academic Terminal: Roasted Deep Walnut Casing */
+.hero-terminal-card {
+  padding: 1.5rem 1.75rem;
+  background: var(--bg-code);
+  border: 1.5px solid #573923;
+  color: #FFF7EB;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-wood);
+}
+
+.terminal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid rgba(255, 247, 235, 0.12);
+  margin-bottom: 1rem;
+}
+
+.terminal-dots {
+  display: flex;
+  gap: 7px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.dot.red { background: #B34438; }
+.dot.yellow { background: #D69E3D; }
+.dot.green { background: #4D8259; }
+
+.terminal-title {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: #D1B99A;
+}
+
+.terminal-icon {
+  color: var(--accent-brass);
+}
+
+.terminal-line {
+  display: flex;
+  gap: 0.65rem;
+  font-size: 0.86rem;
+  margin-bottom: 0.75rem;
+}
+
+.terminal-prompt {
+  color: var(--accent-brass);
+}
+
+.terminal-cmd {
+  color: #FFF7EB;
+}
+
+.terminal-output {
+  color: #E8D8C3;
+  font-size: 0.82rem;
+  line-height: 1.65;
+  white-space: pre-wrap;
+}
+
+/* Quick Stats Bar - Crafted Wooden Shelf */
+.hero-stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.25rem;
+  width: 100%;
+  max-width: 940px;
+  margin-bottom: 3.5rem;
+}
+
+.hero-stat-item {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 1.35rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+}
+
+.stat-value {
+  font-family: var(--font-heading);
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: var(--bg-walnut);
+}
+
+[data-theme="dark"] .stat-value {
+  color: var(--accent-brass);
+}
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.35rem;
+}
+
+.hero-scroll-indicator {
+  margin-top: 1rem;
+}
+
+.scroll-indicator-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  cursor: pointer;
+  transition: color var(--transition-fast);
+}
+
+.scroll-indicator-btn:hover {
+  color: var(--bg-walnut);
+}
+
+.bounce-arrow {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(6px); }
+  60% { transform: translateY(3px); }
+}
+
+/* ==========================================================================
+   ABOUT ME SECTION (PAPER & TIMBER EMBOSSED)
+   ========================================================================== */
+
+.about-bento-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 1.75rem;
+  margin-bottom: 3.5rem;
+}
+
+.about-story-card, .about-timeline-card {
+  padding: 2.25rem;
+}
+
+.card-kicker-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.35rem;
+}
+
+.about-card-title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  margin-bottom: 1.15rem;
+  color: var(--text-primary);
+}
+
+.about-paragraph {
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.about-core-pillars {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.35rem;
+  margin-top: 1.85rem;
+  padding-top: 1.6rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.pillar-item {
+  display: flex;
+  gap: 0.85rem;
+}
+
+.pillar-icon-box {
+  width: 42px;
+  height: 42px;
+  border-radius: var(--radius-sm);
+  background: rgba(87, 57, 35, 0.08);
+  color: var(--bg-walnut);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  border: 1px solid var(--border-subtle);
+}
+
+.pillar-icon-box.cyan,
+.pillar-icon-box.oak {
+  background: rgba(184, 135, 82, 0.12);
+  color: var(--accent-secondary);
+}
+
+.pillar-heading {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.pillar-text {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+/* Timeline Flow - Oak Rail & Brass Rivets */
+.timeline-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  position: relative;
+  margin-top: 1.5rem;
+}
+
+.timeline-entry {
+  display: flex;
+  gap: 1.25rem;
+  position: relative;
+}
+
+.timeline-marker {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 16px;
+}
+
+.timeline-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--accent-brass);
+  box-shadow: 0 0 8px rgba(198, 155, 86, 0.5);
+  border: 2px solid var(--bg-card);
+  flex-shrink: 0;
+}
+
+.timeline-line {
+  width: 2px;
+  flex-grow: 1;
+  background: var(--border-medium);
+  margin-top: 6px;
+}
+
+.timeline-content {
+  flex-grow: 1;
+  padding-bottom: 0.5rem;
+}
+
+.timeline-year {
+  font-size: 0.75rem;
+  color: var(--accent-secondary);
+  font-weight: 600;
+}
+
+.timeline-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0.2rem 0 0.35rem;
+}
+
+.timeline-desc {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.58;
+}
+
+.silambam-callout-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  box-shadow: inset 0 1px 3px rgba(57, 39, 25, 0.05);
+}
+
+/* 2nd-Year Reflection Section */
+.about-reflection-section {
+  margin-top: 4.5rem;
+}
+
+.reflection-header {
+  margin-bottom: 2.25rem;
+}
+
+.reflection-title {
+  font-size: 1.95rem;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+  color: var(--text-primary);
+}
+
+.reflection-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+.reflection-card {
+  padding: 1.85rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.reflection-icon-badge {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.25rem;
+  border: 1px solid var(--border-subtle);
+}
+
+.reflection-icon-badge.amber {
+  background: rgba(184, 110, 32, 0.12);
+  color: var(--accent-amber);
+}
+
+.reflection-icon-badge.emerald {
+  background: rgba(58, 105, 69, 0.12);
+  color: var(--accent-emerald);
+}
+
+.reflection-icon-badge.violet,
+.reflection-icon-badge.walnut {
+  background: rgba(87, 57, 35, 0.12);
+  color: var(--bg-walnut);
+}
+
+[data-theme="dark"] .reflection-icon-badge.violet,
+[data-theme="dark"] .reflection-icon-badge.walnut {
+  background: rgba(200, 148, 90, 0.15);
+  color: var(--accent-brass);
+}
+
+.reflection-card-heading {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.reflection-card-text {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.68;
+  margin-bottom: 1.35rem;
+  flex-grow: 1;
+}
+
+.reflection-tag-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ==========================================================================
+   PROJECTS SECTION (BENTO WOODEN PORTFOLIO)
+   ========================================================================== */
+
+.projects-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.filter-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 500;
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  color: var(--text-secondary);
+  border: 1.5px solid var(--border-subtle);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  box-shadow: 0 1px 3px rgba(57, 39, 25, 0.04);
+}
+
+.filter-pill-btn:hover {
+  border-color: var(--accent-secondary);
+  color: var(--text-primary);
+  background: var(--bg-card-hover);
+}
+
+.filter-pill-btn.active {
+  background: var(--bg-walnut);
+  color: var(--text-inverted);
+  border-color: var(--bg-walnut);
+  box-shadow: 0 4px 12px rgba(57, 39, 25, 0.25);
+}
+
+[data-theme="dark"] .filter-pill-btn.active {
+  background: var(--accent-primary);
+  color: #1C140E;
+  border-color: var(--accent-brass);
+}
+
+.filter-count {
+  font-size: 0.75rem;
+  background: rgba(255, 255, 255, 0.16);
+  padding: 0.15rem 0.45rem;
+  border-radius: var(--radius-full);
+}
+
+.filter-pill-btn:not(.active) .filter-count {
+  background: rgba(87, 57, 35, 0.08);
+  color: var(--text-secondary);
+}
+
+.projects-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.85rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.65rem;
+}
+
+.project-card-visual {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  margin-bottom: 1.35rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+}
+
+.card-mockup-screen {
+  padding: 0.85rem;
+  min-height: 145px;
+  display: flex;
+  flex-direction: column;
+  background: #FFFBF5;
+}
+
+[data-theme="dark"] .card-mockup-screen {
+  background: #231810;
+}
+
+.mockup-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.mock-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.mock-dot.red { background: #B34438; }
+.mock-dot.yellow { background: #D69E3D; }
+.mock-dot.green { background: #4D8259; }
+
+.mockup-label {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  color: var(--text-muted);
+}
+
+.project-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-card-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: var(--text-primary);
+}
+
+.project-title-link:hover {
+  color: var(--accent-secondary);
+}
+
+.project-card-tagline {
+  font-size: 0.9rem;
+  color: var(--accent-secondary);
+  margin-bottom: 0.85rem;
+  font-weight: 600;
+}
+
+.project-card-description {
+  font-size: 0.94rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.25rem;
+}
+
+.project-problem-box {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  padding: 0.9rem;
+  margin-bottom: 1.35rem;
+}
+
+.problem-box-header {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.problem-icon {
+  color: var(--accent-amber);
+}
+
+.problem-box-text {
+  font-size: 0.86rem;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.project-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+  margin-top: auto;
+}
+
+.project-card-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.project-action-btn {
+  flex-grow: 1;
+}
+
+/* ==========================================================================
+   SKILLS SECTION (WOODEN ORGANIZER TRAYS)
+   ========================================================================== */
+
+.skills-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.85rem;
+  margin-bottom: 2rem;
+}
+
+.skill-category-card {
+  padding: 2.15rem;
+}
+
+.category-card-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.85rem;
+}
+
+.category-icon-wrapper {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  background: rgba(87, 57, 35, 0.08);
+  color: var(--bg-walnut);
+  border: 1.5px solid var(--border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-theme="dark"] .category-icon-wrapper {
+  background: rgba(200, 148, 90, 0.15);
+  color: var(--accent-brass);
+}
+
+.category-header-icon.cyan,
+.category-header-icon.oak {
+  color: var(--accent-secondary);
+}
+
+.category-kicker {
+  color: var(--accent-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.category-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.category-description {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+}
+
+.skills-pill-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.95rem;
+}
+
+.skill-detail-item {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xs);
+  padding: 0.9rem 1.1rem;
+}
+
+.skill-item-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.skill-icon-name {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.skill-item-icon {
+  color: var(--bg-walnut);
+}
+
+[data-theme="dark"] .skill-item-icon {
+  color: var(--accent-brass);
+}
+
+.skill-name {
+  font-size: 0.96rem;
+  color: var(--text-primary);
+}
+
+.skill-context-text {
+  font-size: 0.83rem;
+  color: var(--text-secondary);
+  margin-top: 0.4rem;
+  line-height: 1.48;
+}
+
+.skills-footer-note {
+  margin-top: 2rem;
+}
+
+/* ==========================================================================
+   EDUCATION SECTION (STUDIO DOSSIERS)
+   ========================================================================== */
+
+.education-hero-card {
+  padding: 2.35rem;
+  margin-bottom: 2rem;
+}
+
+.degree-badge-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-bottom: 1.35rem;
+}
+
+.degree-title {
+  font-size: 1.85rem;
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+  color: var(--text-primary);
+}
+
+.degree-department {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.3rem;
+}
+
+.degree-institution {
+  font-size: 0.98rem;
+  color: var(--text-secondary);
+  margin-bottom: 1.25rem;
+}
+
+.degree-overview {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.72;
+}
+
+.semesters-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+  margin-bottom: 2rem;
+}
+
+.semester-card {
+  padding: 1.85rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.semester-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.semester-number {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.semester-highlight-pill {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent-secondary);
+  text-align: right;
+  max-width: 160px;
+}
+
+.coursework-label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.75rem;
+}
+
+.courses-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  margin-bottom: 1.25rem;
+}
+
+.course-item {
+  background: var(--bg-secondary);
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-xs);
+  border: 1px solid var(--border-subtle);
+}
+
+.course-header {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.course-code {
+  color: var(--bg-walnut);
+}
+
+[data-theme="dark"] .course-code {
+  color: var(--accent-brass);
+}
+
+.course-topics {
+  margin-top: 0.2rem;
+}
+
+.semester-milestones {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.milestones-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.5rem;
+}
+
+.milestones-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.milestone-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4rem;
+  line-height: 1.48;
+}
+
+.academic-honors-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.honor-card {
+  display: flex;
+  gap: 1.15rem;
+  align-items: flex-start;
+  padding: 1.65rem;
+}
+
+.honor-icon-wrapper {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(198, 155, 86, 0.14);
+  border: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--accent-brass);
+}
+
+.honor-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: var(--text-primary);
+}
+
+.honor-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ==========================================================================
+   ACHIEVEMENTS & CERTIFICATIONS (MEDALS & BRASS SEALS)
+   ========================================================================== */
+
+.achievements-filter-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+  margin-bottom: 2.85rem;
+}
+
+.achievements-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 1.85rem;
+}
+
+.achievement-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.85rem;
+}
+
+.achievement-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.95rem;
+}
+
+.achievement-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  color: var(--text-primary);
+}
+
+.achievement-org {
+  margin-bottom: 0.85rem;
+}
+
+.achievement-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: rgba(198, 155, 86, 0.15);
+  border: 1px solid var(--accent-brass);
+  color: #8C6524;
+  padding: 0.28rem 0.72rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 1.15rem;
+  align-self: flex-start;
+}
+
+[data-theme="dark"] .achievement-badge-pill {
+  color: var(--accent-brass);
+}
+
+.achievement-desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.35rem;
+}
+
+.achievement-skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1.5rem;
+  margin-top: auto;
+}
+
+.achievement-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding-top: 1.15rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* Certificate Modal - Framed Walnut Gallery */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(30, 20, 14, 0.75);
+  backdrop-filter: blur(10px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.modal-container {
+  width: 100%;
+  max-width: 700px;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--bg-card);
+  padding: 1.85rem;
+  border: 2px solid var(--border-brass);
+  box-shadow: var(--shadow-wood);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.85rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.certificate-frame {
+  width: 100%;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--border-medium);
+  box-shadow: var(--shadow-md);
+  background: #1C140E;
+}
+
+.certificate-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.modal-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+/* ==========================================================================
+   LEARNING JOURNEY & LOGBOOK
+   ========================================================================== */
+
+.learning-tabs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  flex-wrap: wrap;
+  margin-bottom: 3.25rem;
+}
+
+.journal-entries-stream {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.journal-entry-card {
+  padding: 2.35rem;
+}
+
+.journal-header-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.journal-title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  margin-bottom: 0.85rem;
+  color: var(--text-primary);
+}
+
+.journal-description {
+  font-size: 1rem;
+  margin-bottom: 1.6rem;
+  line-height: 1.7;
+}
+
+.journal-callout {
+  padding: 1.25rem;
+  border-radius: var(--radius-xs);
+  margin-bottom: 1.15rem;
+}
+
+.journal-callout.problem {
+  background: rgba(184, 110, 32, 0.08);
+  border-left: 3.5px solid var(--accent-amber);
+}
+
+.journal-callout.solution {
+  background: rgba(58, 105, 69, 0.08);
+  border-left: 3.5px solid var(--accent-emerald);
+}
+
+.journal-callout.improvement {
+  background: rgba(198, 155, 86, 0.1);
+  border-left: 3.5px solid var(--accent-brass);
+}
+
+.callout-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.callout-text {
+  font-size: 0.94rem;
+  color: var(--text-primary);
+  line-height: 1.65;
+}
+
+.journal-evidence-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 1.35rem;
+  margin-top: 1.35rem;
+  border-top: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.learning-goals-grid, .future-objectives-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+  gap: 1.75rem;
+}
+
+.goal-card, .objective-card {
+  padding: 1.85rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.goal-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.goal-title, .objective-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+}
+
+.goal-detail {
+  font-size: 0.92rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.goal-progress-wrap {
+  margin-top: auto;
+}
+
+.goal-progress-label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.4rem;
+}
+
+.goal-progress-track {
+  width: 100%;
+  height: 7px;
+  background: var(--bg-secondary);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 1px solid var(--border-subtle);
+}
+
+.goal-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--bg-walnut), var(--accent-brass));
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   EXPERIENCE SECTION (TIMBER FLOW)
+   ========================================================================== */
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 2.25rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.experience-timeline-item {
+  display: flex;
+  gap: 1.85rem;
+}
+
+.exp-timeline-dot-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.exp-timeline-dot {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 1.5px solid var(--accent-brass);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: var(--bg-walnut);
+  box-shadow: var(--shadow-sm);
+}
+
+[data-theme="dark"] .exp-timeline-dot {
+  color: var(--accent-brass);
+}
+
+.exp-timeline-stem {
+  width: 2px;
+  flex-grow: 1;
+  background: var(--border-medium);
+  margin-top: 8px;
+}
+
+.exp-card {
+  flex-grow: 1;
+  padding: 2.15rem;
+}
+
+.exp-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.35rem;
+}
+
+.exp-role-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0.45rem 0 0.15rem;
+}
+
+.exp-organization-name {
+  font-size: 1.05rem;
+  color: var(--accent-secondary);
+  font-weight: 600;
+}
+
+.exp-section-block {
+  margin-bottom: 1.15rem;
+}
+
+.exp-block-label {
+  display: block;
+  margin-bottom: 0.55rem;
+}
+
+.exp-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.exp-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  line-height: 1.6;
+}
+
+.exp-skills-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+/* ==========================================================================
+   GITHUB SHOWCASE (STUDIO REPOSITORIES)
+   ========================================================================== */
+
+.github-profile-pill {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+}
+
+.github-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2rem;
+}
+
+.github-card {
+  padding: 1.65rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.github-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.github-repo-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.repo-title-link:hover {
+  color: var(--accent-secondary);
+}
+
+.github-repo-desc {
+  line-height: 1.6;
+  margin-bottom: 1.15rem;
+  flex-grow: 1;
+}
+
+.repo-topics-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1.35rem;
+}
+
+.github-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.95rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.lang-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.github-stats-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+/* ==========================================================================
+   RESUME SECTION (WARM DESK PAPER & WALNUT BAR)
+   ========================================================================== */
+
+.resume-wrapper {
+  max-width: 920px;
+  margin: 0 auto;
+}
+
+.resume-card {
+  padding: 2.35rem;
+}
+
+.resume-actions-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding-bottom: 1.65rem;
+  border-bottom: 1px solid var(--border-subtle);
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.resume-doc-info {
+  display: flex;
+  align-items: center;
+  gap: 0.95rem;
+}
+
+.resume-doc-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.resume-action-buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.resume-sheet {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  padding: 2.25rem;
+  box-shadow: inset 0 2px 8px rgba(57, 39, 25, 0.04);
+}
+
+.resume-sheet-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.35rem;
+}
+
+.sheet-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.sheet-divider {
+  border: none;
+  height: 1px;
+  background: var(--border-medium);
+  margin: 1.35rem 0;
+}
+
+.sheet-section {
+  margin-bottom: 1.35rem;
+}
+
+.sheet-section-title {
+  font-size: 0.8rem;
+  color: var(--bg-walnut);
+  letter-spacing: 0.1em;
+  font-weight: 700;
+  margin-bottom: 0.55rem;
+}
+
+[data-theme="dark"] .sheet-section-title {
+  color: var(--accent-brass);
+}
+
+.sheet-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.resume-preview-modal {
+  max-width: 880px;
+}
+
+.resume-pdf-iframe {
+  border: none;
+  background: #FFFBF5;
+}
+
+/* ==========================================================================
+   CONTACT SECTION (STUDIO WORKSPACE DESK)
+   ========================================================================== */
+
+.contact-layout-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.45fr;
+  gap: 2.25rem;
+  max-width: 1060px;
+  margin: 0 auto;
+}
+
+.contact-info-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.contact-channel-card {
+  display: flex;
+  gap: 1.15rem;
+  align-items: flex-start;
+  padding: 1.65rem;
+}
+
+.channel-icon-box {
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-sm);
+  background: rgba(87, 57, 35, 0.08);
+  border: 1px solid var(--border-subtle);
+  color: var(--bg-walnut);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+[data-theme="dark"] .channel-icon-box {
+  color: var(--accent-brass);
+  background: rgba(200, 148, 90, 0.15);
+}
+
+.channel-icon-box.cyan,
+.channel-icon-box.oak {
+  background: rgba(184, 135, 82, 0.12);
+  color: var(--accent-secondary);
+}
+
+.contact-social-row {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+
+.contact-form-card {
+  padding: 2.35rem;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.form-row-dual {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.15rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.form-label {
+  color: var(--text-secondary);
+  font-weight: 600;
+}
+
+.text-rose {
+  color: var(--accent-rose);
+}
+
+.form-input {
+  width: 100%;
+  padding: 0.85rem 1.1rem;
+  background: var(--bg-input);
+  border: 1.5px solid var(--border-medium);
+  border-radius: var(--radius-xs);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  transition: all var(--transition-fast);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent-secondary);
+  box-shadow: 0 0 0 3px rgba(184, 135, 82, 0.2);
+}
+
+.form-input.input-error {
+  border-color: var(--accent-rose);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 125px;
+}
+
+.form-error-msg {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  color: var(--accent-rose);
+  margin-top: 0.25rem;
+}
+
+.spinner-dot {
+  width: 14px;
+  height: 14px;
+  border: 2px solid #FFF7EB;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+
+/* ==========================================================================
+   FOOTER (DEEP WALNUT SOLID TIMBER GROUND)
+   ========================================================================== */
+
+.footer-wrapper {
+  background: var(--bg-deep-walnut);
+  color: var(--text-inverted);
+  border-top: 2px solid var(--accent-brass);
+  padding: 5rem 0 2.75rem;
+  margin-top: 5rem;
+}
+
+.footer-top-row {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3.5rem;
+  padding-bottom: 3rem;
+  border-bottom: 1px solid rgba(255, 247, 235, 0.12);
+}
+
+.footer-intro {
+  max-width: 400px;
+  line-height: 1.65;
+  color: #D1B99A;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+
+.footer-link-btn {
+  background: transparent;
+  border: none;
+  color: #D1B99A;
+  font-family: inherit;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 0;
+  transition: color var(--transition-fast);
+}
+
+.footer-link-btn:hover {
+  color: var(--accent-brass);
+}
+
+.footer-social-links {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.social-icon-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 247, 235, 0.08);
+  border: 1px solid rgba(255, 247, 235, 0.15);
+  color: #FFF7EB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.social-icon-btn:hover {
+  background: var(--accent-secondary);
+  color: var(--bg-deep-walnut);
+  border-color: var(--accent-brass);
+}
+
+.back-to-top-btn {
+  background: rgba(255, 247, 235, 0.1);
+  color: #FFF7EB;
+  border-color: rgba(255, 247, 235, 0.2);
+}
+
+.back-to-top-btn:hover {
+  background: var(--accent-brass);
+  color: var(--bg-deep-walnut);
+}
+
+.footer-bottom-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 2.25rem;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+/* ==========================================================================
+   PROJECT DETAILS / CASE STUDY PAGE (EDITORIAL CRAFT)
+   ========================================================================== */
+
+.project-detail-page {
+  padding-bottom: 6rem;
+}
+
+.detail-breadcrumb-bar {
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  color: var(--text-secondary);
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.back-link:hover {
+  color: var(--bg-walnut);
+}
+
+.detail-hero-section {
+  padding: 4rem 0 3.25rem;
+  border-bottom: 1px solid var(--border-subtle);
+  background: radial-gradient(circle at 50% 0%, rgba(198, 155, 86, 0.14) 0%, transparent 70%);
+}
+
+.detail-hero-meta {
+  display: flex;
+  gap: 0.65rem;
+  margin-bottom: 1.15rem;
+}
+
+.detail-hero-title {
+  font-size: clamp(2.6rem, 5.2vw, 4rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.55rem;
+  color: var(--text-primary);
+}
+
+.detail-hero-tagline {
+  font-size: 1.3rem;
+  color: var(--accent-secondary);
+  font-weight: 600;
+  margin-bottom: 1.6rem;
+}
+
+.detail-hero-overview {
+  font-size: 1.18rem;
+  color: var(--text-secondary);
+  max-width: 860px;
+  line-height: 1.75;
+  margin-bottom: 2.25rem;
+}
+
+.detail-hero-actions {
+  display: flex;
+  gap: 1.15rem;
+  flex-wrap: wrap;
+}
+
+.detail-content-container {
+  padding-top: 3.25rem;
+  max-width: 1000px;
+}
+
+.detail-specs-card {
+  padding: 1.75rem 2.25rem;
+  margin-bottom: 2.75rem;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.spec-tags-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.detail-section-block {
+  margin-bottom: 3.75rem;
+}
+
+.grid-dual-cols {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+}
+
+.tech-stack-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.35rem;
+}
+
+.dot-accent {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--bg-walnut);
+  display: inline-block;
+}
+
+.dot-cyan,
+.dot-brass {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-brass);
+  display: inline-block;
+}
+
+.dot-oak {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-secondary);
+  display: inline-block;
+}
+
+.dot-emerald {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-emerald);
+  display: inline-block;
+}
+
+.dot-muted {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  display: inline-block;
+}
+
+.process-timeline-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.15rem;
+}
+
+.process-step-card {
+  padding: 1.35rem 1.65rem;
+}
+
+.feature-item-card {
+  padding: 1.35rem 1.65rem;
+}
+
+.feature-number {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(87, 57, 35, 0.1);
+  color: var(--bg-walnut);
+  border: 1px solid var(--border-medium);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-weight: 700;
+}
+
+.challenges-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.35rem;
+}
+
+.challenge-card {
+  padding: 1.65rem;
+}
+
+.challenge-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.solution-box {
+  background: rgba(58, 105, 69, 0.08);
+  border: 1px solid rgba(58, 105, 69, 0.25);
+  border-radius: var(--radius-xs);
+  padding: 0.95rem 1.15rem;
+}
+
+.project-pagination-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  margin-top: 4.5rem;
+  padding-top: 2.25rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.pagination-btn {
+  padding: 1.35rem 1.65rem;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+/* 404 Page */
+.not-found-card {
+  border: 2px solid var(--border-brass);
+}
+
+.not-found-title {
+  color: var(--bg-walnut);
+}
+
+/* Utilities */
+.flex { display: flex; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+.gap-1 { gap: 0.25rem; }
+.gap-1\.5 { gap: 0.375rem; }
+.gap-2 { gap: 0.5rem; }
+.gap-3 { gap: 0.75rem; }
+.mt-0\.5 { margin-top: 0.125rem; }
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.p-0 { padding: 0 !important; }
+.p-3 { padding: 0.75rem !important; }
+.p-8 { padding: 2rem !important; }
+.p-12 { padding: 3rem !important; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.max-w-md { max-width: 28rem; }
+.max-w-xl { max-width: 36rem; }
+.max-w-2xl { max-width: 42rem; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-6xl { font-size: 3.75rem; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.font-extrabold { font-weight: 800; }
+.text-primary { color: var(--text-primary); }
+.text-secondary { color: var(--text-secondary); }
+.text-muted { color: var(--text-muted); }
+.text-accent { color: var(--bg-walnut); }
+.text-cyan,
+.text-brass { color: var(--accent-brass); }
+.text-oak { color: var(--accent-secondary); }
+.text-emerald { color: var(--accent-emerald); }
+.text-amber { color: var(--accent-amber); }
+.flex-shrink-0 { flex-shrink: 0; }
+.leading-relaxed { line-height: 1.68; }
+.tracking-wider { letter-spacing: 0.06em; }
+.uppercase { text-transform: uppercase; }
+.underline { text-decoration: underline; }
+.rounded { border-radius: var(--radius-sm); }
+.border { border-width: 1px; border-style: solid; }
+.border-subtle { border-color: var(--border-subtle); }
+.border-medium { border-color: var(--border-medium); }
+.bg-secondary { background-color: var(--bg-secondary); }
+
+/* Accessibility & Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Warm Wood Scrollbar */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 4px;
+  border: 2px solid var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--bg-walnut);
+}

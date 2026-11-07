@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 550" width="100%" height="100%">
+  <defs>
+    <linearGradient id="gcpGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4285F4"/>
+      <stop offset="50%" stop-color="#34A853"/>
+      <stop offset="100%" stop-color="#EA4335"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="550" fill="#0B0E14"/>
+  <rect x="25" y="25" width="750" height="500" rx="16" fill="none" stroke="url(#gcpGrad)" stroke-width="2"/>
+  <rect x="40" y="40" width="720" height="470" rx="12" fill="#121620" stroke="#1E293B" stroke-width="1.5"/>
+
+  <text x="400" y="105" font-family="'Space Grotesk', sans-serif" font-size="14" fill="#4285F4" letter-spacing="4" text-anchor="middle" font-weight="600">GOOGLE CLOUD SKILLS BOOST</text>
+  <text x="400" y="165" font-family="'Space Grotesk', sans-serif" font-size="30" fill="#EDEDF0" font-weight="700" text-anchor="middle">Cloud Computing Foundations</text>
+  <text x="400" y="200" font-family="'Inter', sans-serif" font-size="15" fill="#94A3B8" text-anchor="middle">Presented to</text>
+  <text x="400" y="260" font-family="'Space Grotesk', sans-serif" font-size="36" fill="#34A853" font-weight="700" text-anchor="middle">Aarav Sharma</text>
+  <line x1="260" y1="275" x2="540" y2="275" stroke="#34A853" stroke-width="2"/>
+  <text x="400" y="325" font-family="'Inter', sans-serif" font-size="15" fill="#F1F5F9" text-anchor="middle">Demonstrated proficiency in Cloud Infrastructure, Compute Engine, Storage &amp; BigQuery</text>
+  <text x="400" y="355" font-family="'Inter', sans-serif" font-size="14" fill="#64748B" text-anchor="middle">Issued by Google Cloud Training Team</text>
+
+  <circle cx="400" cy="435" r="32" fill="#1E293B" stroke="#4285F4" stroke-width="2"/>
+  <text x="400" y="440" font-family="'Space Grotesk', sans-serif" font-size="11" fill="#4285F4" font-weight="700" text-anchor="middle">GCP</text>
+</svg>
+
